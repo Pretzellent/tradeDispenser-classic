@@ -1,0 +1,70 @@
+<Ui>
+	<Script file="tradeDispenser_SlaveFrame.lua"/>	
+	<Frame name="tradeDispenserSlave" parent="UIParent" hidden="false">
+		<Scripts>
+			<OnUpdate>
+				tradeDispenserSlaveOnUpdate()
+			</OnUpdate>
+		</Scripts>
+	</Frame>
+	
+	<Frame name="tradeDispenserMessageFrame" parent="UIParent" hidden="true" enableMouse="true" movable="true" virtual="true">	
+		<Size>	<AbsDimension x="320" y="180"/>	</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset><AbsDimension x="0" y="0"/></Offset>
+			</Anchor>
+		</Anchors>	
+		<Backdrop bgFile="Interface\DialogFrame\UI-DialogBox-Background" edgeFile="Interface\DialogFrame\UI-DialogBox-Border" tile="true">
+			<BackgroundInsets>
+				<AbsInset left="11" right="12" top="12" bottom="11"/>
+			</BackgroundInsets>
+			<TileSize>	<AbsValue val="32"/>  </TileSize>
+			<EdgeSize>	<AbsValue val="32"/>  </EdgeSize>
+		</Backdrop>
+		<Layers>
+			<Layer level="ARTWORK">
+				<FontString name="$parentText" inherits="GameFontNormal" text="dummy">
+					<Anchors>
+						<Anchor point="TOP">
+							<Offset><AbsDimension x="0" y="-20"/></Offset>
+						</Anchor>
+					</Anchors>
+				</FontString>
+			</Layer>		
+		</Layers>
+		<Frames>
+			<Button name="$parentCloseBtn"  inherits="UIPanelButtonTemplate" hidden="false" text="Close">
+				<Size>
+					<AbsDimension x="97" y="26"/>
+				</Size>
+				<Anchors>
+					<Anchor point="BOTTOM" relativePoint="BOTTOM" relativeTo="$parent">
+						<Offset>
+							<AbsDimension x="0" y="15"/>
+						</Offset>
+					</Anchor>
+				</Anchors>			
+				<Scripts>
+					<OnLoad>
+						self:SetText(tD_Loc.buttons.hide);
+					</OnLoad>
+					<OnClick>
+					    tradeDispenserPlaySound(self)
+						tradeDispenserMessageFrame:Hide();				
+					</OnClick>
+				</Scripts>
+			</Button>	
+		</Frames>
+		<Scripts>
+			<OnLoad> 	self:Raise(); 
+				<!--tradeDispenserMessageFrameText:SetWidth(self:GetWidth()-30)-->
+				tradeDispenserMessageFrameText:SetJustifyH("CENTER")
+			</OnLoad>
+			<OnShow>	PlaySound(SOUNDKIT.IG_QUEST_LIST_COMPLETE); </OnShow>			
+			<OnMouseDown> self:StartMoving();      </OnMouseDown>
+			<OnMouseUp>   self:StopMovingOrSizing();</OnMouseUp>
+			<OnDragStop>  self:StopMovingOrSizing();</OnDragStop>			
+		</Scripts>
+	</Frame>
+</Ui>
