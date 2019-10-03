@@ -230,7 +230,7 @@
 						end
 					</OnEnterPressed>
 					<OnTextChanged>
-						tradeDispenser_Banlist_Edit(this)
+						tradeDispenser_Banlist_Edit(self)
 					</OnTextChanged>
 					<OnEditFocusGained>
 					</OnEditFocusGained>

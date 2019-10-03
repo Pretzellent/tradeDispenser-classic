@@ -6,7 +6,7 @@ if (not configDataVersion) then 		configDataVersion = "0.98"  		end
 
 
 function tradeDispenser_GetEnglish()
-	tradeDispenser_ProgName = "TradeDispenser";
+	tradeDispenser_ProgName = "tradeDispenser";
 	-- tradeDispenser_Version is defined in tradeDispenser_Initialize.lua
 
 	tD_Loc = {
@@ -224,7 +224,7 @@ function tradeDispenser_GetEnglish()
 				[3]			= "have to pay money for your items.",
 			},
 			["leveltext"]	= "Clients level",
-			["level"]		= "at least level",
+			["level"]		= "At least level: ",
 			["register"]	= "Register clients",
 			["maxtrades"]	= "Max trades per client:",
 			["reset"]		= "TradeList resetted",

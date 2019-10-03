@@ -244,6 +244,7 @@
 								tradeDispenserTradeControlLevelMinHigh:SetTextColor(1,0.9,0);
 								tradeDispenserTradeControlLevelMinLow:SetTextColor(1,0.9,0);
 								self:SetValueStep(1);
+								self:SetObeyStepOnDrag(true)
 								self:SetValue(55);
 							</OnLoad>
 							<OnValueChanged>

@@ -1,5 +1,4 @@
 function tradeDispenserSettings_OnUpdate()
-	tradeDispenserVerbose(2, "Updated Settings-Frame")
 	if (tradeDispenserSettingsChannelDDframe) then tradeDispenserSettingsChannelDDframe:Hide(); end
 	if (tradeDispenserSettingsOSDscale and tradeDispenserSettingsSwatch and tD_CharDatas.OSD) then
 		if ( tD_CharDatas.OSD.isEnabled ) then
@@ -52,6 +51,8 @@ function tradeDispenserSettings_OnUpdate()
 	if (tradeDispenserSettingsSoundCheck) then
 		tradeDispenserSettingsSoundCheck:SetChecked(tD_CharDatas.SoundCheck);
 	end
+	tradeDispenserVerbose(2, "Updated Settings-Frame")
+
 end
 
 

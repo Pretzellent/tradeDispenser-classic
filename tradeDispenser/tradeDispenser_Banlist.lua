@@ -5,14 +5,15 @@
 	else
 		tradeDispenserBanlistName:SetText("");
 	end
-	if (GetNumIgnores()>0) then
+	numIgnores = C_FriendList.GetNumIgnores();
+	if (numIgnores>0) then
 		local i;
 		local New = false;
-		for	i=1,GetNumIgnores() do
+		for	i=1,numIgnores do
 			local j;
 			local found = false;
 			for j=1,table.getn(tD_GlobalDatas.Bannlist) do
-				if (strlower(tD_GlobalDatas.Bannlist[j])==strlower(GetIgnoreName(i))) then
+				if (strlower(tD_GlobalDatas.Bannlist[j])==strlower(C_FriendList.GetIgnoreName(i))) then
 					found=true;
 				end
 			end
@@ -75,7 +76,9 @@ end
 
 
 function tradeDispenser_Banlist_Edit(Editbox)
-	if (not Editbox) then return end
+	if (not Editbox) then
+		 return
+	end
 	if (not tD_Temp.BanListStatus) then tD_Temp.BanListStatus="inactive"; end
 	local name = strlower( Editbox:GetText() );
 	string.gsub(name," ","");
@@ -142,19 +145,20 @@ end
 
 
 function tradeDispenser_Banlist_Import()
-	if (GetNumIgnores()>0) then
+	numIgnores = C_FriendList.GetNumIgnores();
+	if (numIgnores>0) then
 		local i;
-		for	i=1,GetNumIgnores() do
+		for	i=1,numIgnores do
 			local j;
 			local found = false;
 			for j=1,table.getn(tD_GlobalDatas.Bannlist) do
-				if (strlower(tD_GlobalDatas.Bannlist[j])==strlower(GetIgnoreName(i))) then
+				if (strlower(tD_GlobalDatas.Bannlist[j])==strlower(C_FriendList.C_FriendList.GetIgnoreName(i))) then
 					found=true;
 				end
 			end
 			if (not found) then 
-				table.insert(tD_GlobalDatas.Bannlist,GetIgnoreName(i));
-				tradeDispenserVerbose(1,"Added Name "..GetIgnoreName(i).." to Banlist");
+				table.insert(tD_GlobalDatas.Bannlist,C_FriendList.GetIgnoreName(i));
+				tradeDispenserVerbose(1,"Added Name "..C_FriendList.GetIgnoreName(i).." to Banlist");
 			end
 		end
 	end

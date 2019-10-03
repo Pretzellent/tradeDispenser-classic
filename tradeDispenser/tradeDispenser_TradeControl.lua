@@ -17,10 +17,10 @@ function tradeDispenser_TradeControl_Update()
 	tradeDispenserTradeControlRegisterMaxTrades:SetValue(tD_CharDatas.RegisterValue)
 	
 	if (tD_CharDatas.BanlistActive) then
-		tradeDispenserTradeControlBans:SetChecked(1)
+		tradeDispenserTradeControlBans:SetChecked(true)
 		tradeDispenserTradeControlBanlistBtn:Enable()
 	else
-		tradeDispenserTradeControlBans:SetChecked(0)
+		tradeDispenserTradeControlBans:SetChecked(false)
 		tradeDispenserTradeControlBanlistBtn:Disable()
 	end
 	
