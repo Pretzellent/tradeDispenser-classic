@@ -179,22 +179,22 @@ function tradeDispenser_GetEnglish()
 			["notenabled"]	= tradeDispenser_ProgName.." is not enabled",
 			["broadcasttip"]	= {
 				["title"] 		= "Broadcast your trade",
-				["channel"]		= "Spammed channel: ",	-- here follows the localised channel-name
-				["left"]		= "LeftClick:  Broadcast instantly",
-				["right"]		= "RightClick: Toggle Automatic Broadcasting",
+				["channel"]		= "Spamming channel: ",	-- here follows the localised channel-name
+				["left"]		= "L-Click:  Broadcast instantly",
+				["right"]		= "R-Click: Toggle Automatic Broadcasting",
 			},
 			["actbutton"] 	= {
 				["activate"]	= "Activate "..tradeDispenser_ProgName,
 				["deactivate"]	= "Deactivate "..tradeDispenser_ProgName,
-				["left"]	= "LeftClick:  Toggle "..tradeDispenser_ProgName,
-				["right"]	= "RightClick: Reset list",
-				["noright"]	= "RightClick: Reset disabled",
+				["left"]	= "L-Click: Toggle "..tradeDispenser_ProgName,
+				["right"]	= "R-Click: Reset list",
+				["noright"]	= "R-Click: Reset disabled",
 			},
 			["configbtn"]	= {
 				["show"]	= "Show Configuration",
 				["hide"]	= "Hide Configuration",
-				["left"]	= "LeftClick:  Basic Configuration",
-				["right"]	= "RightClick: Full Configuration",
+				["left"]	= "L-Click: Basic Configuration",
+				["right"]	= "R-Click: Full Configuration",
 			},
 		},	
 		["control"]			= {
