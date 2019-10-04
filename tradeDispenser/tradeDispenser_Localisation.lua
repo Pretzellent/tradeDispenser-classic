@@ -181,7 +181,7 @@ function tradeDispenser_GetEnglish()
 				["title"] 		= "Broadcast your trade",
 				["channel"]		= "Spammed channel: ",	-- here follows the localised channel-name
 				["left"]		= "LeftClick:  Broadcast instantly",
-				["right"]		= "RightClick: Toggle Broadcasting Automatically",
+				["right"]		= "RightClick: Toggle Automatic Broadcasting",
 			},
 			["actbutton"] 	= {
 				["activate"]	= "Activate "..tradeDispenser_ProgName,
@@ -204,18 +204,17 @@ function tradeDispenser_GetEnglish()
 			["notinraid"]	= {	-- open end. could have more than 5 lines
 				[0]			= "Ignore non-Raid/PartyMembers",
 				[1]			= "Ignores all trade requests of players,",
-				[2]			= "Which are NOT member of your raid/party",
-				[3]			= "This function does only work, if you",
-				[4]			= "Have joined a raid or party",
+				[2]			= "who aren't a member of your raid/party",
+				[3]			= "This only works if you've join a raid/party"
 			},
 			["acceptguild"]	= "accept guild",
 			["autoaccept_BC"]	= "Huge AcceptButton",
 			["autoaccept"]	= "Auto-Accept trades",
 			["ClientInfos"]="Show client-info",
 			["accguild"]	= {	-- open end. could have more than 3 lines
-				[0]			= "Dont block guildmembers",
-				[1]			= "Trade with them, even if they",
-				[2]			= "are not member of your raid/party",
+				[0]			= "Dont block Guild Members",
+				[1]			= "Trade with players, even if they",
+				[2]			= "aren't members of your raid/party",
 			},
 			["FreeCheckBox"]= "Free for raid/guild",
 			["Free4Guild"]	= {
@@ -224,10 +223,10 @@ function tradeDispenser_GetEnglish()
 				[2]			= "players of your raid and guild dont",
 				[3]			= "have to pay money for your items.",
 			},
-			["leveltext"]	= "Clients level",
+			["leveltext"]	= "Players' level",
 			["level"]		= "At least level: ",
-			["register"]	= "Register clients",
-			["maxtrades"]	= "Max trades per client:",
+			["register"]	= "Register player",
+			["maxtrades"]	= "Max trades per player:",
 			["reset"]		= "TradeList resetted",
 		},
 		["Banlist"]			= {
@@ -245,12 +244,12 @@ function tradeDispenser_GetEnglish()
 			["header"]		= tradeDispenser_ProgName,
 			[1]				= "Toggle tradeDispenser",
 			[2]				= "Toggle ConfigFrame",
-			[3]				= "Toggle OSD",
+			[3]				= "Toggle On Screen Display",
 			[4]				= "Insta-Broadcast",
 		},
 		["verbose"]		= {
-			["isset"]	= "verbose-level is: ",
-			["setto"]	= "Changed verbose-level to ",
+			["isset"]	= "Verbosity level is: ",
+			["setto"]	= "Changed Verbosity to ",
 		},
 		["Alliance"]	= "Common",
 		["Horde"]       = "Orcish",
