@@ -40,7 +40,7 @@
 		<Size>	<AbsDimension x="123" y="17"/>	</Size>
 		<Scripts>
 			<OnLoad>
-				self:SetFrameLevel(self:GetParent():GetParent():GetFrameLevel()+4);
+				self:SetFrameLevel(self:GetParent():GetParent():GetFrameLevel()+7);
 				self:SetText(tD_Loc.profile[self:GetID()]);
 			</OnLoad>
 			<OnClick>
@@ -88,8 +88,8 @@
 				<Scripts>
 					<OnClick>
 						PlaySound(SOUNDKIT.IG_MINIMAP_CLOSE)
-						local f = getglobal(tradeDispenserRackDDframe:GetParent():GetName().."DDframe");
-						if (f:IsShown()) then 	f:Hide() 	else	f:Show()	end
+						local f = getglobal(tradeDispenserProfileDDframe:GetParent():GetName().."DDframe");
+						if (f:IsShown()) then f:Hide() 	else f:Show()	end
 						tradeDispenserRackDDframe:Hide();
 					</OnClick>
 					<OnEnter>
@@ -98,7 +98,7 @@
 					</OnEnter>
 					<OnLeave>
 						GameTooltip:Hide();	
-						</OnLeave>
+					</OnLeave>
 				</Scripts>
 				<NormalTexture file="Interface\ChatFrame\UI-ChatIcon-ScrollDown-Up"></NormalTexture>
 				<PushedTexture file="Interface\ChatFrame\UI-ChatIcon-ScrollDown-Down"></PushedTexture>
@@ -267,6 +267,7 @@
 				</Frames>
 				<Scripts>
 					<OnLoad>
+
 						self:SetFrameLevel(self:GetParent():GetFrameLevel()+3);
 					</OnLoad>
 					<OnShow>
@@ -289,9 +290,7 @@
 				self:SetBackdropColor(0, 0, 0, 0);
 			</OnLoad>		
 		</Scripts>
-	</Frame>	
-
-
+	</Frame>
 
 	<Button name="tDRacksTemp"  inherits="UIPanelButtonGrayTemplate" virtual="true">
 		<Size>	<AbsDimension x="123" y="17"/>	</Size>
@@ -730,7 +729,7 @@
 					</OnClick>
 				</Scripts>
 			</Button>
-			<Button name="$parentTradeControlBtn" inherits="UIPanelButtonTemplate" text="TradeControl">
+			<Button name="$parentTradeControlBtn" inherits="UIPanelButtonTemplate" text="Trade Control">
 				<Size>
 					<AbsDimension x="104" y="26"/>
 				</Size>
@@ -764,7 +763,7 @@
 						<Offset><AbsDimension x="20" y="-190"/></Offset>
 					</Anchor>
 				</Anchors>			
-				<Layers>  
+				<Layers> 
 					<Layer level="BACKGROUND">
 						<Texture name="$parentLeft" file="Interface\ClassTrainerFrame\UI-ClassTrainer-FilterBorder">
 							<Size><AbsDimension x="12" y="29"/>	</Size>
@@ -839,7 +838,10 @@
 					</Anchor>
 				</Anchors>
 				<Scripts>
-					<OnLoad>self:SetText("RackControl")  self:Hide()</OnLoad>
+					<OnLoad>
+						self:SetText("RackControl")
+						self:Hide()
+					</OnLoad>
 					<OnClick>
 						tradeDispenserPlaySound(self)
 						if (tradeDispenserRackControlFrame:IsShown()) then
@@ -856,7 +858,6 @@
 		<Scripts>
 			<OnLoad>
 				getglobal(tradeDispenser:GetName().."MoneyLbL"):SetText(tD_Loc.configItems)
-				tradeDispenser.TitleText.text = "asd";
 				tradeDispenserOnLoad()
 				tradeDispenser:SetBackdropBorderColor(1, 1, 1,1)
 				tradeDispenser:SetBackdropColor(0, 0, 0.2, 0)

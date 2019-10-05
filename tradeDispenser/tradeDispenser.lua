@@ -39,7 +39,7 @@ function tradeDispenser_Eventhandler()
 end
 
 
-function tradeDispenserSetFaction() 	-- sets the "paladine" or "shamane" to the profiles...damn burning crusade...
+function tradeDispenserSetFaction() 	-- sets the "paladin" or "shaman" to the profiles...damn burning crusade...
 	if (tradeDispenserProfileDDframe) then
 		if (tradeDispenser_IsBurningCrusade) then 
 			tradeDispenserProfileDDframe:SetHeight(285)
@@ -241,6 +241,7 @@ function tradeDispenserUpdate()
 	local ActPro=tD_CharDatas.ActualProfile;
 
 	MoneyInputFrame_ClearFocus(tradeDispenserMoneyFrame)
+	
 	if (tradeDispenserProfileDDframe) then tradeDispenserProfileDDframe:Hide(); end
 	if (tradeDispenserRackDDframe) then tradeDispenserRackDDframe:Hide(); end
 	

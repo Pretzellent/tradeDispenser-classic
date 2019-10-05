@@ -60,7 +60,7 @@ function tradeDispenser_GetEnglish()
 			},
 			[6] = {
 				["short"]	= "LowLevel-Message",
-				["default"]	= "Only trading with people that are currently level: "..tD_CharDatas.LevelValue..".",
+				["default"]	= "You're currently too low of a level for me to trade with you",
 			},
 			[7]	= {
 				["short"]	= "You're not in guild",
@@ -133,7 +133,7 @@ function tradeDispenser_GetEnglish()
 			["party"]		= "Party",
 		},
 		["settings"]		= {
-			["title"]		= "Settings:",
+			["title"]		= "Settings",
 			["channel"]		= "Channel",
 			["broadcasttext"]="Broadcast text",
 			["broadcastopt"]= "Broadcast options:",
@@ -164,7 +164,7 @@ function tradeDispenser_GetEnglish()
 				[4] = "NOTE: Healers won't get any item",
 				[5] = "of the profile 'Mana User'",
 			},
-			["Timelimit"] = "TimeLimit",
+			["Timelimit"] = "Time Limit",
 			["TimerTooltip"] = {
 				[0] = "This function will activate a timer",
 				[1] = "for limiting the trade-duration",
@@ -198,16 +198,16 @@ function tradeDispenser_GetEnglish()
 			},
 		},	
 		["control"]			= {
-			["title"]		= "TradeControl:",
+			["title"]		= "Trade Control",
 			["ignore"]		= "Ignore players",
-			["notraid"]		= "not in raid/party",		
+			["notraid"]		= "Not in raid/party",		
 			["notinraid"]	= {	-- open end. could have more than 5 lines
 				[0]			= "Ignore non-Raid/PartyMembers",
 				[1]			= "Ignores all trade requests of players,",
 				[2]			= "who aren't a member of your raid/party",
 				[3]			= "This only works if you've join a raid/party"
 			},
-			["acceptguild"]	= "accept guild",
+			["acceptguild"]	= "Accept guild",
 			["autoaccept_BC"]	= "Huge AcceptButton",
 			["autoaccept"]	= "Auto-Accept trades",
 			["ClientInfos"]="Show client-info",
@@ -227,7 +227,7 @@ function tradeDispenser_GetEnglish()
 			["level"]		= "At least level: ",
 			["register"]	= "Register player",
 			["maxtrades"]	= "Max trades per player:",
-			["reset"]		= "TradeList resetted",
+			["reset"]		= "TradeList reset",
 		},
 		["Banlist"]			= {
 			["Title"]		= "Banned players:",
@@ -243,7 +243,7 @@ function tradeDispenser_GetEnglish()
 		["KeyBindings"]		= {
 			["header"]		= tradeDispenser_ProgName,
 			[1]				= "Toggle tradeDispenser",
-			[2]				= "Toggle ConfigFrame",
+			[2]				= "Toggle Configuration",
 			[3]				= "Toggle On Screen Display",
 			[4]				= "Insta-Broadcast",
 		},
