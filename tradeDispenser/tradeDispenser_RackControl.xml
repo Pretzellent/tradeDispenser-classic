@@ -50,7 +50,7 @@
 					<OnClick>
 						PlaySound(SOUNDKIT.IG_MINIMAP_CLOSE)
 						local f = getglobal(self:GetParent():GetName().."DDframe");
-						if (f:IsShown()) then 	f:Hide() 	else	f:Show()	end
+						if (f:IsShown()) then f:Hide() else f:Show() end
 						<!--  hide all other dropdowns    			tradeDispenserRackDDframe:Hide();  -->
 					</OnClick>
 				</Scripts>
@@ -170,14 +170,14 @@
 							</Anchor>
 						</Anchors>
 					</Button>
-					<Button name="$parentSub9"  inherits="tDDropDownButtonTemp" id="9" text="paladine" hidden="false">
+					<Button name="$parentSub9"  inherits="tDDropDownButtonTemp" id="9" text="paladin" hidden="false">
 						<Anchors>
 							<Anchor point="TOP" relativeTo="$parentSub8" relativePoint="BOTTOM">
 								<Offset><AbsDimension x="0" y="0"/></Offset>
 							</Anchor>
 						</Anchors>
 					</Button>
-					<Button name="$parentSub10"  inherits="tDDropDownButtonTemp" id="10" text="shamane" hidden="false" >
+					<Button name="$parentSub10"  inherits="tDDropDownButtonTemp" id="10" text="shaman" hidden="false" >
 						<Anchors>
 							<Anchor point="TOP" relativeTo="$parentSub9" relativePoint="BOTTOM">
 								<Offset><AbsDimension x="0" y="0"/></Offset>
@@ -249,7 +249,7 @@
 					<OnClick>
 						PlaySound(SOUNDKIT.IG_MINIMAP_CLOSE)
 						local f = getglobal(self:GetParent():GetName().."DDframe");
-						if (f:IsShown()) then 	f:Hide() 	else	f:Show()	end
+						if (f:IsShown()) then f:Hide() else f:Show() end
 						<!--  hide all other dropdowns    			tradeDispenserRackDDframe:Hide();  -->
 					</OnClick>
 				</Scripts>
@@ -690,7 +690,7 @@
 	</Frame>
 	
 	
-	<Frame name="tradeDispenserRackControlFrame" parent="UIParent" hidden="true"  enableMouse="true" movable="true" virtual="true">		<!-- SHOWs some BUTTONS on the screen  -->
+	<Frame name="tradeDispenserRackControlFrame" parent="UIParent" hidden="true"  enableMouse="true" movable="true">		<!-- SHOWs some BUTTONS on the screen  -->
 		<Size>	<AbsDimension x="760" y="350"/>	</Size>
 		<Anchors>
 			<Anchor point="CENTER">

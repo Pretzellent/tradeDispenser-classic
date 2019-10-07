@@ -52,7 +52,7 @@
 					<OnClick>
 						PlaySound(SOUNDKIT.IG_MINIMAP_CLOSE)
 						local f=getglobal(self:GetParent():GetName().."DDframe");
-						if (f:IsShown()) then	f:Hide();	else		f:Show();		end
+						if (f:IsShown()) then f:Hide() else f:Show() end
 					</OnClick>
 				</Scripts>
 				<NormalTexture file="Interface\ChatFrame\UI-ChatIcon-ScrollDown-Up"></NormalTexture>
@@ -221,7 +221,7 @@
 		<Scripts>
 			<OnLoad>
 				self:ClearFocus();
-				getglobal(self:GetName().."LbL"):SetText(tD_Loc.settings.broadcasttext.." "..self:GetID()..":");
+				getglobal(self:GetName().."LbL"):SetText(tD_Loc.settings.broadcasttext..":");
 				self:SetText("DummyText");
 				self:SetTextColor(1,1,1);
 			</OnLoad>

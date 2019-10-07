@@ -39,26 +39,6 @@ function tradeDispenser_Eventhandler()
 end
 
 
-function tradeDispenserSetFaction() 	-- sets the "paladin" or "shaman" to the profiles...damn burning crusade...
-	if (tradeDispenserProfileDDframe) then
-		if (tradeDispenser_IsBurningCrusade) then 
-			tradeDispenserProfileDDframe:SetHeight(285)
-		else
-			tradeDispenserProfileDDframe:SetHeight(268)
-			if (UnitFactionGroup("player")=="Alliance") then
-				tradeDispenserProfileDDframeSub10:Hide();
-				tradeDispenserProfileDDframeSub11:ClearAllPoints()
-				tradeDispenserProfileDDframeSub11:SetPoint("TOP", tradeDispenserProfileDDframeSub9, "BOTTOM" , 0, -5)
-			else
-				tradeDispenserProfileDDframeSub9:Hide();
-				tradeDispenserProfileDDframeSub10:ClearAllPoints()
-				tradeDispenserProfileDDframeSub10:SetPoint("TOP", tradeDispenserProfileDDframeSub8, "BOTTOM" , 0, 0)
-			end
-		end
-	end
-end
-
-
 function tradeDispenserSpamMyVersion()
 	C_ChatInfo.SendAddonMessage("tradeDispenser", tradeDispenser_Version, "RAID")
 	C_ChatInfo.SendAddonMessage("tradeDispenser", tradeDispenser_Version, "PARTY")

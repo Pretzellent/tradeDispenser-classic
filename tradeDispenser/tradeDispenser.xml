@@ -1,4 +1,5 @@
 <Ui>
+<!-- Begin Virtual Frames -->
 	<Script file="tradeDispenser.lua"/>
 	<Frame name="tDItemTemp" inherits="TradeItemTemplate" virtual="true">
 		<Frames>
@@ -32,10 +33,7 @@
 			</Button>
 		</Frames>
 	</Frame>
-	
-	
-	
-	
+
 	<Button name="tDProfilesTemp"  inherits="UIPanelButtonGrayTemplate" virtual="true">
 		<Size>	<AbsDimension x="123" y="17"/>	</Size>
 		<Scripts>
@@ -89,7 +87,7 @@
 					<OnClick>
 						PlaySound(SOUNDKIT.IG_MINIMAP_CLOSE)
 						local f = getglobal(tradeDispenserProfileDDframe:GetParent():GetName().."DDframe");
-						if (f:IsShown()) then f:Hide() 	else f:Show()	end
+						if (f:IsShown()) then f:Hide() 	else f:Show() end
 						tradeDispenserRackDDframe:Hide();
 					</OnClick>
 					<OnEnter>
@@ -147,7 +145,7 @@
 				</Scripts>
 			</Frame>
 			<Frame name="$parentDDframe" hidden="true" enableMouse="true">
-				<Size><AbsDimension x="150" y="268"/></Size>	
+				<Size><AbsDimension x="150" y="285"/></Size>
 				<Anchors>
 					<Anchor point="TOPRIGHT">
 						<Offset><AbsDimension x="-18" y="0"/></Offset>
@@ -222,14 +220,14 @@
 							</Anchor>
 						</Anchors>
 					</Button>
-					<Button name="$parentSub9"  inherits="tDProfilesTemp" id="9" text="paladin" hidden="false">
+					<Button name="$parentSub9"  inherits="tDProfilesTemp" id="9" text="paladin">
 						<Anchors>
 							<Anchor point="TOP" relativeTo="$parentSub8" relativePoint="BOTTOM">
 								<Offset><AbsDimension x="0" y="0"/></Offset>
 							</Anchor>
 						</Anchors>
 					</Button>
-					<Button name="$parentSub10"  inherits="tDProfilesTemp" id="10" text="shaman" hidden="false" >
+					<Button name="$parentSub10"  inherits="tDProfilesTemp" id="10" text="shaman">
 						<Anchors>
 							<Anchor point="TOP" relativeTo="$parentSub9" relativePoint="BOTTOM">
 								<Offset><AbsDimension x="0" y="0"/></Offset>
@@ -344,7 +342,7 @@
 					<OnClick>
 						PlaySound(SOUNDKIT.IG_MINIMAP_CLOSE)
 						local f = getglobal(self:GetParent():GetName().."DDframe");
-						if (f:IsShown()) then 	f:Hide() 	else	f:Show()	end
+						if (f:IsShown()) then f:Hide() 	else f:Show() end
 						tradeDispenserProfileDDframe:Hide();
 					</OnClick>
 				</Scripts>
@@ -455,8 +453,7 @@
 			</OnLoad>		
 		</Scripts>
 	</Frame>
-	
-	
+	<!-- End Virtual Frames -->
 	
 	
 	<Frame name="tD_AcceptTrade" parent="UIParent"  hidden="true" enableMouse="true" movable="true">
@@ -511,12 +508,17 @@
 		</Scripts>
 	</Frame>
 	<!-- Main Config Container -->
-	<Frame name="tradeDispenser" parent="UIParent" inherits="BasicFrameTemplate" hidden="true" enableMouse="true" movable="true" TitleText="asdf">	
+	<Frame name="tradeDispenser" parent="UIParent" inherits="BasicFrameTemplateWithInset" hidden="true" enableMouse="true" movable="true">	
 		<Size>
 			<AbsDimension x="300" y="384"/>
 		</Size>
 		<Layers> 
 			<Layer level="ARTWORK">
+				<FontString name="$parentTitleText" parentKey="Title" inherits="GameFontNormal" text="Trade Dispenser">
+					<Anchors>
+						<Anchor point="TOP" x="0" y="-5"/>
+					</Anchors>
+				</FontString>
 				<FontString name="$parentMoneyLbL" inherits="GameFontNormalSmall" text="Insert Money and Items">
 					<Anchors>
 						<Anchor point="TOPLEFT">
@@ -655,37 +657,14 @@
 				</Scripts>
 			</Button>
 			
-			<Button name="$parentHide" inherits="UIPanelButtonTemplate" text="Hide">
-				<Size>
-					<AbsDimension x="104" y="26"/>
-				</Size>
-				<Anchors>
-					<Anchor point="BOTTOMLEFT" relativeTo="$parent">
-						<Offset><AbsDimension x="18" y="22"/></Offset>
-					</Anchor>
-				</Anchors>
-				<Scripts>
-					<OnLoad>
-						self:SetText(tD_Loc.buttons.hide);
-					</OnLoad>
-					<OnClick>
-						tradeDispenserPlaySound(self)
-						tradeDispenserMessages:Hide();
-						tD_Temp.isVisible = false;
-						tradeDispenserUpdate();
-						tradeDispenserOSD_OnUpdate()
-					</OnClick>
-				</Scripts>
-			</Button>
-			
 			<Button name="$parentWhisperBtn" inherits="UIPanelButtonTemplate" text="Whispers">
 				<Size>
 					<AbsDimension x="104" y="26"/>
 				</Size>
 				<Anchors>
-					<Anchor point="BOTTOMLEFT" relativeTo="$parentHide" relativePoint="TOPLEFT">
+					<Anchor point="BOTTOMLEFT" relativeTo="$parent" relativePoint="BOTTOMLEFT">
 						<Offset>
-							<AbsDimension x="0" y="19"/>
+							<AbsDimension x="18" y="19"/>
 						</Offset>
 					</Anchor>
 				</Anchors>
@@ -858,6 +837,7 @@
 		<Scripts>
 			<OnLoad>
 				getglobal(tradeDispenser:GetName().."MoneyLbL"):SetText(tD_Loc.configItems)
+				tradeDispenserTitleText:SetText(tradeDispenser_ProgName.." v"..tradeDispenser_Version);
 				tradeDispenserOnLoad()
 				tradeDispenser:SetBackdropBorderColor(1, 1, 1,1)
 				tradeDispenser:SetBackdropColor(0, 0, 0.2, 0)
@@ -869,7 +849,6 @@
 				if
 					(tD_CharDatas.SoundCheck) then PlaySound(SOUNDKIT.UI_TRANSMOG_OPEN_WINDOW)
 				end;
-				tradeDispenserSetFaction();
 				tradeDispenserSpamMyVersion()
 			</OnShow>
 			<OnMouseDown>

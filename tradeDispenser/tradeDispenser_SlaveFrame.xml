@@ -8,7 +8,7 @@
 		</Scripts>
 	</Frame>
 	
-	<Frame name="tradeDispenserMessageFrame" parent="UIParent" hidden="true" enableMouse="true" movable="true" virtual="true">	
+	<Frame name="tradeDispenserMessageFrame" parent="UIParent" hidden="true" enableMouse="true" movable="true">	
 		<Size>	<AbsDimension x="320" y="180"/>	</Size>
 		<Anchors>
 			<Anchor point="CENTER">

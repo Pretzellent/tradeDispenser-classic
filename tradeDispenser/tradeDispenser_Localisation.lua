@@ -135,7 +135,7 @@ function tradeDispenser_GetEnglish()
 		["settings"]		= {
 			["title"]		= "Settings",
 			["channel"]		= "Channel",
-			["broadcasttext"]="Broadcast text",
+			["broadcasttext"]="Broadcast Text",
 			["broadcastopt"]= "Broadcast options:",
 			["bkcolor"]		= "BG Color",		
 			["border"]		= "Border",
@@ -210,7 +210,7 @@ function tradeDispenser_GetEnglish()
 			["acceptguild"]	= "Accept guild",
 			["autoaccept_BC"]	= "Huge AcceptButton",
 			["autoaccept"]	= "Auto-Accept trades",
-			["ClientInfos"]="Show client-info",
+			["ClientInfos"] = "Show Player info",
 			["accguild"]	= {	-- open end. could have more than 3 lines
 				[0]			= "Dont block Guild Members",
 				[1]			= "Trade with players, even if they",
