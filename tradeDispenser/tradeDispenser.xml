@@ -512,6 +512,11 @@
 		<Size>
 			<AbsDimension x="300" y="384"/>
 		</Size>
+		<Anchors>
+			<Anchor point="CENTER">
+				<Offset><AbsDimension x="0" y="0"/>	</Offset>
+			</Anchor>
+		</Anchors>
 		<Layers> 
 			<Layer level="ARTWORK">
 				<FontString name="$parentTitleText" parentKey="Title" inherits="GameFontNormal" text="Trade Dispenser">
