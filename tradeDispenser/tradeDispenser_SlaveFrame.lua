@@ -151,12 +151,12 @@ function tradeDispenserGetChannel()
 		if (tD_CharDatas.ChannelID==2) then Channel="YELL"; ChannelLoc=tD_Loc.channel.yell end
 		if (tD_CharDatas.ChannelID==3) then --Channel="RAID"; ChannelLoc=tD_Loc.channel.raid 
 			if (UnitInRaid("player")~=nil) 	 then Channel="RAID"; 		ChannelLoc=tD_Loc.channel.raid
-			elseif (GetNumPartyMembers()>=1) then Channel="PARTY";	ChannelLoc=tD_Loc.channel.party
+			elseif (GetNumGroupMembers()>=1) then Channel="PARTY";	ChannelLoc=tD_Loc.channel.party
 			else Channel="YELL"; 	ChannelLoc=tD_Loc.channel.yell	end
 			if (GetBattlefieldInstanceRunTime()>0) then Channel="BATTLEGROUND";ChannelLoc=tD_Loc.channel.raid end
 		end
 		if (tD_CharDatas.ChannelID==4) then --Channel="PARTY"; ChannelLoc=tD_Loc.channel.party 
-			if ((GetNumPartyMembers()>=1)) then Channel="PARTY";	ChannelLoc=tD_Loc.channel.party 
+			if ((GetNumGroupMembers()>=1)) then Channel="PARTY";	ChannelLoc=tD_Loc.channel.party 
 			else Channel="YELL";		ChannelLoc=tD_Loc.channel.yell end
 		end
 		if (tD_CharDatas.ChannelID==5) then Channel="GUILD";   ChannelLoc=tD_Loc.channel.guild  end
