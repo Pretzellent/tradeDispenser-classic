@@ -1,8 +1,8 @@
 ## Interface: 11302
 ## Title: TradeDispenser-classic |cFF888888V1.13
-## Notes: |cFF7E9CE5Automatically dispenses specified items to anyone who wants to trades with you                                                           |cFF45E849Use /tD or /tradeDispenser
-## Notes-deDE: |cFF7E9CE5Handelt automatisch verschiedene vorher definierte Items, sobald man angehandelt wird.                                            |cFF45E849Benutze /tradeDispenser & /tD
-## Notes-frFR: |cFF7E9CE5Distribue automatiquement les objets sp�cifi�s � quiconque initie une transaction avec vous                                       |cFF45E849Utilisation /tD ou /tradeDispenser
+## Notes: |cFF7E9CE5Automatically dispenses specified items to anyone who wants to trades with you - |cFF888888Use /tD or /tradeDispenser
+## Notes-deDE: |cFF7E9CE5Handelt automatisch verschiedene vorher definierte Items, sobald man angehandelt wird. - |cFF888888Benutze /tradeDispenser & /tD
+## Notes-frFR: |cFF7E9CE5Distribue automatiquement les objets sp�cifi�s � quiconque initie une transaction avec vous - |cFF888888Utilisation /tD ou /tradeDispenser
 ## DefaultState: enabled
 ## Author: Vanilla: Kaboom@Arthas(EU). Classic: Pretzellent@Remulos(OCE)
 ## SavedVariables: tD_GlobalDatas, tD_Datas

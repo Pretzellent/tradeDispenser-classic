@@ -1,9 +1,9 @@
-ï»¿TradeDispenser	Version 1.04
--------------------------------------------------------
-Author:			Silas M.	aka 	Kaboom @ Arthas (EU)
-Core: 			Tom C.  	aka 	Shag @ Arthas (EU)
-Downloaded:		http://ui.worldofwar.net/ui.php?id=2203
--------------------------------------------------------	
+ï»¿TradeDispenser v1.13a
+-----------------------------------------------------------------------
+Classic Author:			Akin G.		aka 	Pretzellent @ Remulos (OCE)
+Vanilla Author:			Silas M.	aka 	Kaboom @ Arthas (EU)
+Core: 					Tom C.  	aka 	Shag @ Arthas (EU)
+-----------------------------------------------------------------------
 
 
 
@@ -35,19 +35,8 @@ Additional Note:
 		- Group Y 	(e.g. Melee)
 	These 3 groups are ADDITIVE. if a warlock's gonna trade you, he'll get the stuff 
 	you placed in all 3 groups (e.g. All Classes + Warlock + Caster)
-	it would only trade the first 6 items the search-engine could find.
+	it'll only trade the first 6 items the search-engine could find.
 	
-	thx goes to FrozenSolidOne @ Killrog(US). he helped me finding some bugs
-	
-	
-	
-THX goes to:
-------------
-- FrozenSolidOne @ Killrog(US)		-	he helped me finding a lot of bugs
-- Mickeey @ ¶ þÇøÃÎ¾³Ö®Ê÷ (CN)	   			-	translatet the whole text to chineese
-- Balzebeth @ Conseil des Ombres (EU) - translated the whole text to french
-
-
 	
 
 CHANGELOG:
@@ -59,6 +48,15 @@ Symbols:
 	o 	Bug Fixed
 	* 	Other Changes
 
+
+Version 1.13a
+-------------
+	o	Update WoW API Calls for num party members to new call
+	o	Update code to drag items over to trade frame to actually work
+	
+Version 1.13
+------------
+	*	Initial work to get into a working state for Classic
 	
 Version 1.03 - 1.04
 -------------------

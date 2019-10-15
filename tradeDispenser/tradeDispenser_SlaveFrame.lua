@@ -1,31 +1,31 @@
-function tradeDispenserSlaveOnUpdate()
+BroadcastThrottle = tD_CharDatas.broadcastSlice;
+
+function tradeDispenserSlaveOnUpdate(self, elapsed)
 	local down, up, lag = GetNetStats();
 	local LagTimer = floor(lag/1000); 
 	if (LagTimer < 0.2) then LagTimer=0.2 end;
 	
+	self.TimeSinceLastBroadcast = self.TimeSinceLastBroadcast + elapsed;
+
 	if (not tD_Temp.isEnabled) then	return end
 	
-	if (tD_Temp.broadcastSlice > 0) then
-		if (arg1~=nil) then
-			tD_Temp.broadcastSlice = tD_Temp.broadcastSlice - arg1
-		end
-		if (tD_Temp.broadcastSlice < 0) then
-			if (UnitAffectingCombat("player")==1) then
-				-- player is in combat! tD should not spam its auto-broadcast while fighting some mobs!   (especially bossmobs)     - wait 15sec, and try again!
-				tD_Temp.broadcastSlice = 15;
-			else
-				if (tD_CharDatas.AutoBroadcast) then tradeDispenserBroadcastItems() end
-				tD_Temp.broadcastSlice = tD_CharDatas.broadcastSlice
-			end
+	if (self.TimeSinceLastBroadcast > BroadcastThrottle) then
+		if (UnitAffectingCombat("player")==1) then
+			-- player is in combat! tD should not spam its auto-broadcast while fighting some mobs!   (especially bossmobs)     
+			-- wait 15sec, and try again!
+			self.TimeSinceLastBroadcast = -15;
+		else
+			if (tD_CharDatas.AutoBroadcast) then tradeDispenserBroadcastItems() end
+			self.TimeSinceLastBroadcast = 0;
 		end
 	end
 	
-	if (arg1~=nil) then
-		tD_Temp.timeSlice = tD_Temp.timeSlice - arg1
+	if (elapsed~=nil) then
+		tD_Temp.timeSlice = tD_Temp.timeSlice - elapsed
 		
 		if (tD_CharDatas.TimelimitCheck and tD_Temp.Countdown) then
 			if (tD_Temp.Countdown>0) then 
-				tD_Temp.Countdown=tD_Temp.Countdown - arg1; 
+				tD_Temp.Countdown=tD_Temp.Countdown - elapsed; 
 				if (math.floor(tD_Temp.Countdown)==11) then
 					tradeDispenserMessage("WHISPER", tD_GlobalDatas.whisper[11]);
 					tD_Temp.Countdown=tD_Temp.Countdown-1;
@@ -37,22 +37,21 @@ function tradeDispenserSlaveOnUpdate()
 					CloseTrade();
 					tD_Temp.Countdown=tD_Temp.Countdown-1;
 				end
-				--tradeDispenserVerbose(0,"countdown: "..tD_Temp.Countdown);
 			end
 		end		
 	end;
-	if (tD_Temp.timeSlice > 0) then 	return end
 	
 	if (tD_Temp.tradeState == "populate") then
 		-- PUT  ITEMS  INTO  THE  TRADE-FRAME
 		tD_Temp.timeSlice = LagTimer
 		tradeDispenserVerbose(1,"tradeDispenserSlaveOnUpdate: populate")
+		local cID = 0;
+		local sID = 0;
 		if (tD_Temp.Slot[tD_Temp.tradeData.slotID]) then
+			cID, sID = tradeDispenserCompile(tD_Temp.tradeData.slotID)
+			tradeDispenserVerbose(3,"Compile Item "..tD_Temp.tradeData.slotID)
 			if (tD_Temp.tradeData.containerLocation == nil) then
-				tradeDispenserVerbose(3,"Compile Item "..tD_Temp.tradeData.slotID)
-				
-				local cID, sID = tradeDispenserCompile(tD_Temp.tradeData.slotID)
-				
+
 				if (cID == "deadlink") then
 					tradeDispenserVerbose(1,"deadlink")
 					tD_Temp.tradeData.containerLocation=nil;
@@ -68,49 +67,45 @@ function tradeDispenserSlaveOnUpdate()
 					tD_Temp.tradeData = true
 					return
 				else
-					tradeDispenserVerbose(2,"tradeDispenserOnUpdate: found container location")
+					tradeDispenserVerbose(2,"tradeDispenserOnUpdate: Created containerLocation table")
 					tD_Temp.tradeData.containerLocation = {}
-					tD_Temp.tradeData.containerLocation.cID = cID
-					tD_Temp.tradeData.containerLocation.sID = sID
-				end
 			end
+		end
+		
+		tD_Temp.tradeData.containerLocation.cID = cID
+		tD_Temp.tradeData.containerLocation.sID = sID
+		tradeDispenserVerbose(2,cID..sID);
+		local _, itemCount = GetContainerItemInfo(cID, sID)
+		PickupContainerItem(cID, sID)
+		
+		if (CursorHasItem()) then
+			tradeDispenserVerbose(3,"tradeDispenserSlaveOnUpdate: CursorHasItem()")
+			ClickTradeButton(tD_Temp.tradeData.slotID)
+			
+			if (itemCount ~= tD_Temp.Slot[tD_Temp.tradeData.slotID].itemCount) then
+				tradeDispenserMessage("WHISPER",tD_GlobalDatas.whisper[3], "WHISPER")
+				tradeDispenserMessage("SAY",tD_GlobalDatas.whisper[2])
 				
-			if (tD_Temp.tradeData.containerLocation) then
-				local cID = tD_Temp.tradeData.containerLocation.cID
-				local sID = tD_Temp.tradeData.containerLocation.sID
-				
-				local _, itemCount = GetContainerItemInfo(cID, sID)
-				PickupContainerItem(cID, sID)
-				
-				if ( CursorHasItem() ) then
-					tradeDispenserVerbose(3,"tradeDispenserSlaveOnUpdate: CursorHasItem()")
-					ClickTradeButton(tD_Temp.tradeData.slotID)
-					
-					if (itemCount ~= tD_Temp.Slot[tD_Temp.tradeData.slotID].itemCount) then
-						tradeDispenserMessage("WHISPER",tD_GlobalDatas.whisper[3], "WHISPER")
-						tradeDispenserMessage("SAY",tD_GlobalDatas.whisper[2])
-						
-						tD_Temp.timeSlice = LagTimer*4
-						tD_Temp.tradeState = "accept"
-						tD_Temp.tradeData = true
-						return
-					end
-					
-					tD_Temp.tradeData.slotID = tD_Temp.tradeData.slotID + 1
-					tD_Temp.tradeData.containerLocation = nil
-					tD_Temp.tradeData.numAttempts = 0
-				else
-					tD_Temp.tradeData.numAttempts = tD_Temp.tradeData.numAttempts + 1
-					if (tD_Temp.tradeData.numAttempts == 32) then
-						tradeDispenserVerbose(2,"tradeDispenserOnUpdate: too many attempts")
-						tradeDispenserMessage("WHISPER",tD_GlobalDatas.whisper[1]);
-						CloseTrade()
-						return
-					end
-				end
+				tD_Temp.timeSlice = LagTimer*4
+				tD_Temp.tradeState = "accept"
+				tD_Temp.tradeData = true
+				return
 			end
+			
+			tD_Temp.tradeData.slotID = tD_Temp.tradeData.slotID + 1
+			tD_Temp.tradeData.containerLocation = nil
+			tD_Temp.tradeData.numAttempts = 0
 		else
-			--tradeDispenserVerbose(1,"tradeDispenserSlaveOnUpdate: ID ="..tD_Temp.tradeData.slotID)
+			tD_Temp.tradeData.numAttempts = tD_Temp.tradeData.numAttempts + 1
+			if (tD_Temp.tradeData.numAttempts == 32) then
+				tradeDispenserVerbose(2,"tradeDispenserOnUpdate: too many attempts")
+				tradeDispenserMessage("WHISPER",tD_GlobalDatas.whisper[1]);
+				CloseTrade()
+				return
+			end
+		end
+		else
+			tradeDispenserVerbose(1,"tradeDispenserSlaveOnUpdate: ID ="..tD_Temp.tradeData.slotID)
 			tD_Temp.tradeData.slotID = tD_Temp.tradeData.slotID + 1
 			if (tD_Temp.tradeData.slotID >= 7) then
 				tD_Temp.tradeState = "accept"

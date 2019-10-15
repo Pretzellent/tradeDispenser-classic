@@ -157,7 +157,6 @@ function tradeDispenserOnEvent(event)
 		end
 	end
 	if (event == "TRADE_ACCEPT_UPDATE") then
-		tradeDispenserVerbose(1,"TRADE_ACCEPT_UPDATE: Player="..arg1.." - Target="..arg2);
 		if (arg1==0 and arg2==1 and tD_CharDatas.AutoAccept) then 
 			tradeDispenserAccept()
 		end
