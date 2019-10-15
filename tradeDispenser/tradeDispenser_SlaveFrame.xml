@@ -2,9 +2,8 @@
 	<Script file="tradeDispenser_SlaveFrame.lua"/>	
 	<Frame name="tradeDispenserSlave" parent="UIParent" hidden="false">
 		<Scripts>
-			<OnUpdate>
-				tradeDispenserSlaveOnUpdate()
-			</OnUpdate>
+			<OnLoad>self.TimeSinceLastUpdate = 0</OnLoad>
+			<OnUpdate function="tradeDispenserSlaveOnUpdate"/>
 		</Scripts>
 	</Frame>
 	

@@ -22,7 +22,7 @@ function tradeDispenserSettings_OnUpdate()
 	if (tD_CharDatas.ChannelID) then tradeDispenser_ChannelUpdate() end
 	
 	if (tD_CharDatas.broadcastSlice and tradeDispenserSettingsBroadcastTimerLbl) then 
-		tradeDispenserSettingsBroadcastTimerLbl:SetText(floor(tD_CharDatas.broadcastSlice/60).." min")
+		tradeDispenserSettingsBroadcastTimerLbl:SetText(math.floor(tD_CharDatas.broadcastSlice/60).." min")
 	end
 	
 	if (tradeDispenserSettingsBroadcastCheck) then

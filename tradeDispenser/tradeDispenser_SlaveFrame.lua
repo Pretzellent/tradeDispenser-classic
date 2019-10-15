@@ -1,22 +1,22 @@
-BroadcastThrottle = tD_CharDatas.broadcastSlice;
+BroadcastThrottle = math.floor(tD_CharDatas.broadcastSlice/60);
 
 function tradeDispenserSlaveOnUpdate(self, elapsed)
 	local down, up, lag = GetNetStats();
 	local LagTimer = floor(lag/1000); 
 	if (LagTimer < 0.2) then LagTimer=0.2 end;
 	
-	self.TimeSinceLastBroadcast = self.TimeSinceLastBroadcast + elapsed;
+	self.TimeSinceLastUpdate = self.TimeSinceLastUpdate + elapsed;
 
 	if (not tD_Temp.isEnabled) then	return end
-	
-	if (self.TimeSinceLastBroadcast > BroadcastThrottle) then
+
+	if (self.TimeSinceLastUpdate > BroadcastThrottle and tD_CharDatas.AutoBroadcast) then
 		if (UnitAffectingCombat("player")==1) then
 			-- player is in combat! tD should not spam its auto-broadcast while fighting some mobs!   (especially bossmobs)     
 			-- wait 15sec, and try again!
-			self.TimeSinceLastBroadcast = -15;
+			self.TimeSinceLastUpdate = -15;
 		else
-			if (tD_CharDatas.AutoBroadcast) then tradeDispenserBroadcastItems() end
-			self.TimeSinceLastBroadcast = 0;
+			tradeDispenserBroadcastItems()
+			self.TimeSinceLastUpdate = 0;
 		end
 	end
 	
