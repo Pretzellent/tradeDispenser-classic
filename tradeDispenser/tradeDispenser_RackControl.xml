@@ -676,9 +676,9 @@
 						local n=self:GetName();
 						getglobal(n.."High"):SetText("5");
 						getglobal(n.."Low"):SetText("1");
-						<!--getglobal(n.."Lbl"):SetText(tD_Loc.settings.scale);-->
 						self:SetMinMaxValues(0, 5);
 						self:SetValueStep(1);
+						self:SetObeyStepOnDrag(true);
 						self:SetValue(2);
 						getglobal(n.."Text"):SetText("Value: "..self:GetValue());
 					</OnLoad>

@@ -426,6 +426,7 @@
 						getglobal(n.."Lbl"):SetText(tD_Loc.settings.scale);
 						self:SetMinMaxValues(0.4, 2);
 						self:SetValueStep(0.025);
+						self:SetObeyStepOnDrag(true);
 						self:SetValue(1);
 					</OnLoad>
 					<OnValueChanged>
@@ -657,6 +658,7 @@
 						getglobal(n.."Lbl"):SetTextColor(1,1,1);
 						self:SetMinMaxValues(1, tradeDispenser_MaxBroadcastLength);
 						self:SetValueStep(1);
+						self:SetObeyStepOnDrag(true);
 						self:SetValue(math.floor(tradeDispenser_MaxBroadcastLength/2));
 					</OnLoad>
 					<OnShow>
@@ -775,6 +777,7 @@
 						getglobal(n.."Lbl"):SetTextColor(1,1,1);
 						self:SetMinMaxValues(10, 60);
 						self:SetValueStep(5);
+						self:SetObeyStepOnDrag(true);
 						self:SetValue(30);
 					</OnLoad>
 					<OnShow>
@@ -806,6 +809,7 @@
 						getglobal(self:GetName().."Low"):SetText("");				
 						self:SetMinMaxValues(1, 8);
 						self:SetValueStep(1);
+						self:SetObeyStepOnDrag(true);
 						self:SetValue(5);
 					</OnLoad>
 					<OnValueChanged>

@@ -244,7 +244,7 @@
 								tradeDispenserTradeControlLevelMinHigh:SetTextColor(1,0.9,0);
 								tradeDispenserTradeControlLevelMinLow:SetTextColor(1,0.9,0);
 								self:SetValueStep(1);
-								self:SetObeyStepOnDrag(true)
+								self:SetObeyStepOnDrag(true);
 								self:SetValue(55);
 							</OnLoad>
 							<OnValueChanged>
@@ -354,6 +354,7 @@
 								tradeDispenserTradeControlRegisterMaxTradesLow:SetText("1");
 								self:SetMinMaxValues(1,5);
 								self:SetValueStep(1);
+								self:SetObeyStepOnDrag(true);
 								self:SetValue(1);
 							</OnLoad>
 							<OnValueChanged>

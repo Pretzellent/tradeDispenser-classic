@@ -213,7 +213,7 @@ function tradeDispenserTradeControlChecker(tradeDispenserClient)
 			ToggleWorldMap(); 
 			tradeDispenserVerbose(1, " Map closed to avoid more bugs... ");
 		else
-			tradeDispenserVerbose(1, " Error: could not collect any Datas... Maybe it was a LAG.   :(");
+			tradeDispenserVerbose(1, " Error: could not collect any Data... Maybe it was a LAG.   :(");
 		end
 		return false;
 	end

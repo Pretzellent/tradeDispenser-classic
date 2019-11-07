@@ -103,6 +103,7 @@
 						getglobal(self:GetName().."Low"):SetText("");
 						self:SetMinMaxValues(1, 10);
 						self:SetValueStep(1);
+						self:SetObeyStepOnDrag(true)
 						self:SetValue(1);
 						self:SetOrientation("VERTICAL");
 					</OnLoad>
