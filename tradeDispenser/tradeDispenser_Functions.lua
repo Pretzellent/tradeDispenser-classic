@@ -226,7 +226,7 @@ function tradeDispenserTradeControlChecker(tradeDispenserClient)
 		if (UnitInParty("player")) then
 			if (UnitInParty("NPC")) then	tradeDispenserClient.Raid = "IsMember";
 			else							tradeDispenserClient.Raid = "NotMember";			end
-		else 								tradeDispenserClient.Raid = "SinglePlayer"; 		end
+		else 								tradeDispenserClient.Raid = "NotMember"; 		end
 	end
 			
 	local guildName,  guildRankName,  guildRankIndex = GetGuildInfo("player");
@@ -255,7 +255,7 @@ function tradeDispenserTradeControlChecker(tradeDispenserClient)
 	if (tD_CharDatas.Raid and tradeDispenserClient.Raid=="NotMember") then 
 		if (tD_CharDatas.Guild) then
 			if (tradeDispenserClient.Guild=="NotMember") then
-				tradeDispenserMessage("WHISPER",tD_GlobalDatas.whisper[8])
+				tradeDispenserMessage("WHISPER",tD_GlobalDatas.whisper[7])
 				return false;
 			end
 		else
