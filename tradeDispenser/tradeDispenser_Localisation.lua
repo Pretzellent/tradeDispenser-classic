@@ -12,6 +12,7 @@ function tradeDispenser_GetEnglish()
 	tD_Loc = {
 		["logon"]			= {
 			["changed"]		= "Data version has changed, resetting configuration",
+			["changed"]			= "Data version has changed, resetting configuration",
 			["welcome"] 	= " Version "..tradeDispenser_Version.." - initialized",
 		},	
 		["configtitle"]		= tradeDispenser_ProgName.." V"..tradeDispenser_Version,
@@ -83,6 +84,7 @@ function tradeDispenser_GetEnglish()
 				["default"] = "Please accept the trade, I'll cancel it in 10 sec.",
 			},
 		},
+		["defaultBroadcast"]		= tradeDispenser_ProgName.." enabled! Trade me and grab yourself some items!",
 		["Broadcast"] 				= {
 			[1] 					= tradeDispenser_ProgName.." enabled! Trade me and grab yourself some items!",
 			[2]						= "edit this line to write a new broadcast-message",
@@ -346,8 +348,9 @@ function tradeDispenser_GetGerman()
 				["default"] = "Bitte akzeptiere den Handel, ich werde ihn sonst in 10 sec abbrechen. (Könnte auch ein LAG sein)",
 			},
 		},
+		["defaultBroadcast"]		= tradeDispenser_ProgName.." aktiviert! Handelt mich an, dann kriegs ihr was!",
 		["Broadcast"] 				= {
-			[1] 					= tradeDispenser_ProgName.." aktiviert! Handelt mich an, dann kriegs ihr was",
+			[1] 					= tradeDispenser_ProgName.." aktiviert! Handelt mich an, dann kriegs ihr was!",
 			[2]						= "Editiere diese Zeile, um einen weiteren Zufallstext zu erstellen",
 			[3]						= "Hinweis: Man kann Items hier per Drag'n'Drop einfügen",
 			[4]						= "Schreib noch mehr Texte und owne den Raid",	
@@ -614,6 +617,7 @@ function tradeDispenser_GetChinese()
 				["default"] = "请速度接受交易, 10秒后我将取消交易",
 			},
 		},
+		["defaultBroadcast"]		= tradeDispenser_ProgName.." 开始营业了! 交易我来换取你想要的东西!",
 		["Broadcast"] 				= {
 			[1] 					= tradeDispenser_ProgName.." 开始营业了! 交易我来换取你想要的东西!",
 			[2]						= "编辑一条新的广播.",
@@ -874,6 +878,7 @@ function tradeDispenser_GetFrench()
 				["default"] = "Accepte l'échange STP, je l'annulerai dans 10 secondes",
 			},
 		},
+		["defaultBroadcast"]		= tradeDispenser_ProgName.." activé! Ouvrez une fenêtre d'échange avec moi et recevez vos objets!",
 		["Broadcast"] 				= {
 			[1] 					= tradeDispenser_ProgName.." activé! Ouvrez une fenêtre d'échange avec moi et recevez vos objets!",
 			[2]						= "éditez cette ligne pour définir votre annonce",

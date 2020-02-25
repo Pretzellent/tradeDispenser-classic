@@ -2,7 +2,10 @@
 	<Script file="tradeDispenser_SlaveFrame.lua"/>	
 	<Frame name="tradeDispenserSlave" parent="UIParent" hidden="false">
 		<Scripts>
-			<OnLoad>self.TimeSinceLastUpdate = 0</OnLoad>
+			<OnLoad>
+				self.TimeSinceLastUpdate = 0;
+				self.TimeSinceLastReminderToAccept = 0;
+			</OnLoad>
 			<OnUpdate function="tradeDispenserSlaveOnUpdate"/>
 		</Scripts>
 	</Frame>

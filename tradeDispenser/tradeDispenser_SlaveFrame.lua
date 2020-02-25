@@ -2,11 +2,12 @@ BroadcastThrottle = math.floor(tD_CharDatas.broadcastSlice/60);
 
 function tradeDispenserSlaveOnUpdate(self, elapsed)
 	local down, up, lag = GetNetStats();
-	local LagTimer = floor(lag/1000); 
+	local LagTimer = math.floor(lag/1000); 
 	if (LagTimer < 0.2) then LagTimer=0.2 end;
 	
 	self.TimeSinceLastUpdate = self.TimeSinceLastUpdate + elapsed;
-
+	self.TimeSinceLastReminderToAccept = self.TimeSinceLastReminderToAccept + elapsed
+	
 	if (not tD_Temp.isEnabled) then	return end
 
 	if (self.TimeSinceLastUpdate > BroadcastThrottle and tD_CharDatas.AutoBroadcast) then
@@ -26,7 +27,7 @@ function tradeDispenserSlaveOnUpdate(self, elapsed)
 		if (tD_CharDatas.TimelimitCheck and tD_Temp.Countdown) then
 			if (tD_Temp.Countdown>0) then 
 				tD_Temp.Countdown=tD_Temp.Countdown - elapsed; 
-				if (math.floor(tD_Temp.Countdown)==11) then
+				if (math.floor(tD_Temp.Countdown)==10) then
 					tradeDispenserMessage("WHISPER", tD_GlobalDatas.whisper[11]);
 					tD_Temp.Countdown=tD_Temp.Countdown-1;
 				end
@@ -114,8 +115,9 @@ function tradeDispenserSlaveOnUpdate(self, elapsed)
 				tD_Temp.tradeData = false
 			end
 		end
-	elseif (tD_Temp.tradeState == "accept") then
-		tD_Temp.timeSlice = 1000
+	elseif (tD_Temp.tradeState == "accept" and self.TimeSinceLastReminderToAccept > BroadcastThrottle) then
+		tD_Temp.timeSlice = 1000;
+		self.TimeSinceLastReminderToAccept = -15;
 		if (tD_CharDatas.AutoAccept) then tradeDispenserAccept() end
 	end
 	
